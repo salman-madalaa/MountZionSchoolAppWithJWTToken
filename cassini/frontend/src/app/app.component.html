@@ -1,0 +1,141 @@
+<!-- Toolbar -->
+<!-- <div class="toolbar" role="banner" *ngIf="authSer.isUserLoggedIn()">
+
+  <img (click)="home()" width="90" alt="Angular Logo" src="../assets/logo/zion missinary school.png" />
+  <h3 style="font-family: none;">{{title}}</h3>
+  <div class="spacer">
+    <button style="margin-left: 25px;" title="Normal students" mat-mini-fab (click)="normalStudents()">NS</button>
+    <button style="margin-left: 25px;" title="RTE students" mat-mini-fab (click)="RteStudents('rte')">RTES</button>
+  </div>
+  <button style="margin-right: 25px;" color="warn" mat-mini-fab (click)="logout()" title="Logout">
+    <mat-icon>logout</mat-icon>
+  </button>
+</div> -->
+
+<!--show busy indicator-->
+<!-- <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-clip-rotate-multiple"
+  [fullScreen]="true">
+  <p style="color: white"> Loading... </p>
+</ngx-spinner>
+
+<div class="view">
+  <router-outlet></router-outlet>
+</div> -->
+
+
+
+<mat-sidenav-container class="sidenav-container mat-app-background" [ngClass]="{'dark-theme-mode':isDarkTheme}">
+
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" attr.role="navigation" mode="over" fixedTopGap="65">
+    <mat-accordion>
+      <mat-toolbar>Menu</mat-toolbar>
+      <mat-divider></mat-divider>
+
+      <mat-nav-list>
+
+        <a mat-list-item routerLink="/home">Home</a>
+        <mat-divider></mat-divider>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Normal Students</mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-divider></mat-divider>
+          <mat-selection-list [multiple]="false">
+            <mat-list-option *ngFor="let className of normalClass" [value]="normalClass"
+              routerLink="/students/normal/class/{{className}}">
+              Class {{className}}
+            </mat-list-option>
+          </mat-selection-list>
+        </mat-expansion-panel>
+        <mat-divider></mat-divider>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>RTE Studnts</mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-divider></mat-divider>
+          <mat-selection-list [multiple]="false">
+            <mat-list-option *ngFor="let className of rteClass" [value]="normalClass"
+              routerLink="/students/rte/class/{{className}}">
+              Class {{className}}
+            </mat-list-option>
+          </mat-selection-list>
+        </mat-expansion-panel>
+        <mat-divider></mat-divider>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Import And Export</mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-divider></mat-divider>
+          <mat-selection-list [multiple]="false">
+            <mat-list-option routerLink="/import">
+              Import
+            </mat-list-option>
+
+            <mat-list-option routerLink="/export">
+              Export
+            </mat-list-option>
+
+          </mat-selection-list>
+        </mat-expansion-panel>
+        <mat-divider></mat-divider>
+
+        <a mat-list-item routerLink="/admin">
+          Admin
+        </a>
+
+        <mat-divider></mat-divider>
+
+
+      </mat-nav-list>
+
+    </mat-accordion>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+    <div *ngIf="authSer.isUserLoggedIn()">
+      <mat-toolbar color="primary" style="position: fixed;">
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+          <mat-icon aria-label="Side nav toggle icon" aria-hidden="false">menu</mat-icon>
+        </button>
+        <img (click)="home()" width="90" alt="Angular Logo" src="../assets/logo/zion missinary school.png"
+          style="cursor:pointer" />
+        <span>{{title}}</span>
+
+        <div class="spacer">
+          <button style="margin-left: 25px;" *ngIf="loaderSer.isHomeActive.getValue()" title="Normal students"
+            mat-mini-fab (click)="normalStudents()">NS</button>
+          <button style="margin-left: 25px;" *ngIf="loaderSer.isHomeActive.getValue()" title="RTE students" mat-mini-fab
+            (click)="RteStudents('rte')">RTES</button>
+        </div>
+
+        <!-- <span style="flex:auto;"></span>
+        <mat-slide-toggle [(ngModel)]="isDarkTheme" labelPosition="before" (change)="storeThemeSelection()">
+          <mat-icon>bedtime</mat-icon>
+        </mat-slide-toggle> -->
+
+        <mat-icon style="margin-right: 20px;cursor: pointer;" [matMenuTriggerFor]="menu">format_color_fill</mat-icon>
+
+        <button style="margin-right: 25px;cursor: pointer;" color="warn" mat-mini-fab (click)="logout()" title="Logout">
+          <mat-icon>logout</mat-icon>
+        </button>
+      </mat-toolbar>
+    </div>
+    <div class="view mat-app-background">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-clip-rotate-multiple"
+  [fullScreen]="true">
+  <p style="color: white"> Loading... </p>
+</ngx-spinner>
+
+<mat-menu #menu xPosition="before">
+  <button mat-menu-item (click)="storeThemeSelection(false)">Light</button>
+  <button mat-menu-item (click)="storeThemeSelection(true)">Dark</button>
+</mat-menu>

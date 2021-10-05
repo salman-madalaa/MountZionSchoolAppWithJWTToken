@@ -1,0 +1,63 @@
+<div class="content">
+  <div class="example-button-container">
+    <button mat-fab color="primary" title="New student" (click)="newStudent()">
+      <mat-icon>add</mat-icon>
+    </button>
+
+
+  </div>
+
+  <!---------------------RTE Stundents Count view---------------------------->
+  <mat-card (click)="allRteStuents('rte')" *ngIf="type != null" style="margin-left: 38%; margin-bottom: 20px; justify-content: center"
+    class="mat-elevation-z4">
+    <mat-card-content>
+      {{ allRteStundents }}
+    </mat-card-content>
+    <mat-card-actions>
+      <mat-card-title>Total RTE Students</mat-card-title>
+    </mat-card-actions>
+  </mat-card>
+
+  <div fxLayout="row wrap" fxLayoutGap="16px grid" *ngIf="type != null">
+    <div fxFlex="14%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let num of arr; let i = index">
+      <mat-card class="mat-elevation-z4" style="width: 150px" (click)="details('rte',num)">
+        <mat-card-header> </mat-card-header>
+        <mat-card-content *ngFor="let num1 of arr2; let j = index">
+          <p *ngIf="i == j">
+            {{ num1 }}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <mat-card-title>Class {{ num | titlecase }}</mat-card-title>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+
+  <!---------------------Normal Stundents Count view---------------------------->
+  <mat-card (click)="allNormalStuents('normal')" *ngIf="type == null" style="margin-left: 38%; margin-bottom: 20px; justify-content: center"
+    class="mat-elevation-z4">
+    <mat-card-content>
+      {{ allStundents }}
+    </mat-card-content>
+    <mat-card-actions>
+      <mat-card-title>Total Normal Students</mat-card-title>
+    </mat-card-actions>
+  </mat-card>
+
+  <div fxLayout="row wrap" fxLayoutGap="16px grid" *ngIf="type == null">
+    <div fxFlex="14%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let num of arr4; let i = index">
+      <mat-card class="mat-elevation-z4" style="width: 150px" (click)="details('normal',num)">
+        <mat-card-header> </mat-card-header>
+        <mat-card-content *ngFor="let num1 of arr5; let j = index">
+          <p *ngIf="i == j">
+            {{ num1 }}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <mat-card-title>Class {{ num | titlecase }}</mat-card-title>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

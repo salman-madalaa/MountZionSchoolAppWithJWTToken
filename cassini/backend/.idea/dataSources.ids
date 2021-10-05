@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="PostgreSQL - school@localhost" uuid="1a9d852c-d9f6-4ba6-83e6-c7848a1e5bd9">
+    <database-info product="PostgreSQL" version="9.4.12" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.5">
+      <identifier-quote-string>&quot;</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact"/>
+    <schema name="public" catalog="school"/>
+    <table name="hibernate_sequence" schema="public" catalog="school" type="SEQUENCE"/>
+    <table name="roles" schema="public" catalog="school" type="TABLE">
+      <column name="id" sqlType="serial" precision="10" scale="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgncm9sZXNfaWRfc2VxJzo6cmVnY2xhc3Mp" autoIncrement="true"/>
+      <column name="description" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="name" sqlType="varchar" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="roles_pkey" columns="id"/>
+      <exported-key name="fkh8ciramu9cc9q3qcqiv4ue8a6" table="user_roles" schema="public" catalog="school" columns="role_id"/>
+    </table>
+    <table name="roles_id_seq" schema="public" catalog="school" type="SEQUENCE"/>
+    <table name="sibling_information" schema="public" catalog="school" type="TABLE">
+      <column name="id" sqlType="serial" precision="10" scale="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgnc2libGluZ19pbmZvcm1hdGlvbl9pZF9zZXEnOjpyZWdjbGFzcyk=" autoIncrement="true"/>
+      <column name="age" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="name" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="student_sibling_fk" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="sibling_information_pkey" columns="id"/>
+      <foreign-key name="fkkbiygaq6po915reqvc6tqu3bl" columns="student_sibling_fk" ref-table="student" ref-schema="public" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="sibling_information_id_seq" schema="public" catalog="school" type="SEQUENCE"/>
+    <table name="student" schema="public" catalog="school" type="TABLE">
+      <column name="id" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="aadhar_number" sqlType="int8" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="bank_account_number" sqlType="int8" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="cast_id" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="caste" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="child_handicapped" sqlType="bool" precision="1" scale="0" nullable="true" jdbcType="-7"/>
+      <column name="class_to_join" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="date_of_admission" sqlType="date" precision="13" scale="0" nullable="true" jdbcType="91"/>
+      <column name="date_of_birth" sqlType="date" precision="13" scale="0" nullable="true" jdbcType="91"/>
+      <column name="father_mother_expired" sqlType="bool" precision="1" scale="0" nullable="true" jdbcType="-7"/>
+      <column name="father_name" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="first_name" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="gender" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ifsc_code" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="last_name" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="marks_of_identification" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="mobile_number" sqlType="int8" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="mother_name" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="perment_address" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="present_address" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="registrationid" sqlType="varchar" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="religion" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="rte_students" sqlType="bool" precision="1" scale="0" nullable="true" jdbcType="-7"/>
+      <column name="samagra_id" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="siblings" sqlType="bool" precision="1" scale="0" nullable="true" jdbcType="-7"/>
+      <primary-key name="student_pkey" columns="id"/>
+      <exported-key name="fkkbiygaq6po915reqvc6tqu3bl" table="sibling_information" schema="public" catalog="school" columns="student_sibling_fk"/>
+    </table>
+    <table name="student_image" schema="public" catalog="school" type="TABLE">
+      <column name="id" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="name" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="pic_byte" sqlType="oid" precision="10" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="type" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="student_image_pkey" columns="id"/>
+    </table>
+    <table name="user_roles" schema="public" catalog="school" type="TABLE">
+      <column name="rowid" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="role_id" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="user_id" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="user_roles_pkey" columns="user_id,role_id"/>
+      <foreign-key name="fkh8ciramu9cc9q3qcqiv4ue8a6" columns="role_id" ref-table="roles" ref-schema="public" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fkhfh9dx7w3ubf1co1vdev94g3f" columns="user_id" ref-table="users" ref-schema="public" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="users" schema="public" catalog="school" type="TABLE">
+      <column name="id" sqlType="bigserial" precision="19" scale="0" nullable="false" jdbcType="-5" def="bmV4dHZhbCgndXNlcnNfaWRfc2VxJzo6cmVnY2xhc3Mp" autoIncrement="true"/>
+      <column name="email" sqlType="varchar" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="first_name" sqlType="varchar" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="image" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="last_name" sqlType="varchar" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="password" sqlType="varchar" precision="120" scale="0" nullable="true" jdbcType="12"/>
+      <column name="phone_number" sqlType="int8" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="username" sqlType="varchar" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="users_pkey" columns="id"/>
+      <exported-key name="fkhfh9dx7w3ubf1co1vdev94g3f" table="user_roles" schema="public" catalog="school" columns="user_id"/>
+      <index name="uk6dotkott2kjsp8vw4d0m25fb7" unique="true" columns="email"/>
+      <index name="ukr43af9ap4edm43mmtq01oddj6" unique="true" columns="username"/>
+    </table>
+    <table name="users_id_seq" schema="public" catalog="school" type="SEQUENCE"/>
+  </data-source>
+</component>

@@ -1,0 +1,38 @@
+*{
+  margin-top:2%;
+}
+
+.import{
+  width: 500px;
+  height: 500px;
+  background-color: rgb(228, 228, 228);
+  border-radius: 50%;
+  cursor: pointer;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+h4{
+  position: fixed;
+  top: 46%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  text-align: center;
+  width: 100%;
+  color:black
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.mat-card{
+  text-align: center;
+  width: 500px;
+  position: fixed;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="PostgreSQL - school@localhost" uuid="1a9d852c-d9f6-4ba6-83e6-c7848a1e5bd9">
+      <secret-storage>master_key</secret-storage>
+      <user-name>cassinisys</user-name>
+      <schema-pattern>school.public</schema-pattern>
+      <default-schemas>school.public</default-schemas>
+    </data-source>
+  </component>
+</project>

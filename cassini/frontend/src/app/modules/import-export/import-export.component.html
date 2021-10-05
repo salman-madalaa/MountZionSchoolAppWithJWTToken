@@ -1,0 +1,49 @@
+<div *ngIf="isImport">
+  <div (click)="import.click()" class="import">
+    <h4>Click here to select file to import</h4>
+  </div>
+  <input type="file" accept=".xls,.xlsx, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" style="display: none" (change)="onFileChange($event)" #import>
+</div>
+
+
+<mat-card *ngIf="isExport">
+  <mat-card-title>Export</mat-card-title>
+
+  <mat-card-content>
+    <form [formGroup]="import" autocomplete="off">
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>is RTE Student</mat-label>
+        <mat-select formControlName="isRteStudent" required>
+          <mat-option value="" >Select</mat-option>
+          <mat-option value="true" (click)="rteStudent(true)">Yes</mat-option>
+          <mat-option value="false" (click)="rteStudent(false)">No</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <span></span>
+      <mat-form-field class="example-full-width" appearance="outline" >
+        <mat-label>ClassName</mat-label>
+        <mat-select formControlName="className" disableOptionCentering required>
+          <mat-option value="">Select</mat-option>
+          <mat-option value="all">All</mat-option>
+          <mat-option value="nursary">Nursary Class</mat-option>
+          <mat-option value="kg1">Kg 1 Class</mat-option>
+          <mat-option value="kg2">Kg 2 Class</mat-option>
+          <mat-option value="first">First Class</mat-option>
+          <mat-option value="second">Second Class</mat-option>
+          <mat-option value="third">Third Class</mat-option>
+          <mat-option value="fourth">Fourth Class</mat-option>
+          <mat-option value="fifth">Fifth Class</mat-option>
+          <mat-option value="sixth">Sixth Class</mat-option>
+          <mat-option value="seventh">Seventh Class</mat-option>
+          <mat-option value="eighth">Eighth Class</mat-option>
+          <mat-option value="ninth" *ngIf="isRteStudent == false" >Ninth Class</mat-option>
+          <mat-option value="tenth" *ngIf="isRteStudent == false">Tenth Class</mat-option>
+        </mat-select>
+      </mat-form-field>
+</form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" style="float: left;" [disabled]="!import.valid" (click)="exportIndividual(import.value)" >export</button>
+    <button mat-raised-button color="primary" style="float: right;" [disabled]="import.valid" (click)="exportTotalData(import.value)" >Total Export</button>
+  </mat-card-actions>
+</mat-card>
