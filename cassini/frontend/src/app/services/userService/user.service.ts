@@ -18,6 +18,7 @@ export class UserService {
     let body = JSON.stringify(ob);
     let options = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
     return this.http.post(this.baseUrl + 'api/auth/signup', body,options);
+   // return this.http.post(this.baseUrl + 'api/user/new', body,options);
   }
 
   updateUser(id:number,ob): Observable<any>{

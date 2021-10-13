@@ -4,6 +4,7 @@ package com.zion.school.controller;
 import com.zion.school.config.security.jwt.JwtUtils;
 import com.zion.school.config.security.services.UserDetailsImpl;
 import com.zion.school.core.BaseController;
+import com.zion.school.helper.EmailHelper;
 import com.zion.school.model.security.ERole;
 import com.zion.school.model.security.Role;
 import com.zion.school.model.security.User;
@@ -13,8 +14,10 @@ import com.zion.school.model.security.response.JwtResponse;
 import com.zion.school.model.security.response.MessageResponse;
 import com.zion.school.repo.security.RoleRepository;
 import com.zion.school.repo.security.UserRepository;
+import jakarta.mail.internet.AddressException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -24,10 +27,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+
+import javax.mail.MessagingException;
 import javax.validation.Valid;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.io.IOException;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -45,6 +49,11 @@ public class AuthController extends BaseController {
 
     @Autowired
     PasswordEncoder encoder;
+
+    @Autowired
+    private EmailHelper emailHelper;
+
+
 
     @Autowired
     JwtUtils jwtUtils;
@@ -126,8 +135,11 @@ public class AuthController extends BaseController {
         }
 
         user.setRoles(roles);
+        emailHelper.sendmail();
         userRepository.save(user);
 
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
     }
+
+
 }

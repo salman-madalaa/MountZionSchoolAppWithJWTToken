@@ -128,7 +128,7 @@
               <mat-form-field class="example-full-width" appearance="fill">
                 <!-- <input matInput type="text" placeholder="ClassToJoin" formControlName="classToJoin" id="classToJoin"  > -->
                 <mat-label>ClassToJoin</mat-label>
-                <mat-select formControlName="classToJoin" [disableOptionCentering]="true" required>
+                <!-- <mat-select formControlName="classToJoin" [disableOptionCentering]="true" required>
                   <mat-option value="nursary">Nursary Class</mat-option>
                   <mat-option value="kg1">Kg 1 Class</mat-option>
                   <mat-option value="kg2">Kg 2 Class</mat-option>
@@ -142,7 +142,22 @@
                   <mat-option value="eighth">Eighth Class</mat-option>
                   <mat-option value="ninth" *ngIf="isRteStudent == false">Ninth Class</mat-option>
                   <mat-option value="tenth" *ngIf="isRteStudent == false">Tenth Class</mat-option>
+                </mat-select> -->
+
+                <mat-select [disableOptionCentering]="true"  formControlName="classToJoin"  placeholder="Auto Focus" *ngIf="isRteStudent == false">
+                  <mat-select-filter [displayMember]="'className'" [array]="normalStudentClassNames" (filteredReturn)="filteredList =$event"></mat-select-filter>
+                  <mat-option *ngFor="let item of filteredList" [value]="item.value">
+                    {{item.className}}
+                  </mat-option>
                 </mat-select>
+
+                <mat-select [disableOptionCentering]="true"  formControlName="classToJoin"  placeholder="Auto Focus" *ngIf="isRteStudent == true">
+                  <mat-select-filter [displayMember]="'className'" [array]="rteStudentClassNames" (filteredReturn)="filteredList1 =$event"></mat-select-filter>
+                  <mat-option *ngFor="let item of filteredList1" [value]="item.value">
+                    {{item.className}}
+                  </mat-option>
+                </mat-select>
+
               </mat-form-field>
             </div>
           </mat-grid-tile>

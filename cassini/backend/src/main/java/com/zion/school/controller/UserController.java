@@ -3,11 +3,14 @@ package com.zion.school.controller;
 import com.zion.school.core.BaseController;
 import com.zion.school.model.security.User;
 import com.zion.school.service.UserService;
+import jakarta.mail.internet.AddressException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
+import javax.mail.MessagingException;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -41,7 +44,7 @@ public class UserController extends BaseController {
     }
 
     @RequestMapping(value = "/{id}",method = RequestMethod.PUT)
-    public User updateUser(@PathVariable("id") Long id,@RequestBody User user){
+    public User updateUser(@PathVariable("id") Long id,@RequestBody User user) {
         return  userService.updateUser(id, user);
     }
 

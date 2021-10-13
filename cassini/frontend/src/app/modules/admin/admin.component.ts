@@ -24,11 +24,16 @@ export class AdminComponent implements OnInit, AfterViewInit {
   editRoleInfo: any;
   imageSrc:any;
   searchText:any;
-  
+
   constructor(private _userSer: UserService, private _roleService: RoleService, private _overlaySidePanelService: OverlaySidePanelService,
     private formBuilder: FormBuilder, public loaderSer: LoaderService, private dialogSer: ConfirmationDialogService) { }
 
   ngOnInit(): void {
+    this.initMethods();
+  }
+
+  initMethods(){
+
     this.getAllUers();
     this.getAllRoles();
 
@@ -53,7 +58,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
 
   }
 
-
+ 
   ngAfterViewInit() {
     this._overlaySidePanelService.setContent(AdminSidepanelComponent);
   }
@@ -64,11 +69,14 @@ export class AdminComponent implements OnInit, AfterViewInit {
   }
 
   getAllUers() {
+    this.loaderSer.showNgxSpinner();
     this._userSer.getallUsers().subscribe((data) => {
       console.log(data);
       this.users = data;
+      this.loaderSer.hideNgxSpinner();
     }, (error) => {
       console.log(error);
+      this.loaderSer.hideNgxSpinner();
     })
   }
   closeSidepanel() {
@@ -103,7 +111,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
 
   createUser(ob) {
     console.log(ob);
-    // this.loaderSer.showNgxSpinner();
+     this.loaderSer.showNgxSpinner();
     // ob.append('image', this.userForm.get('image').value);
     console.log(ob.image);
     this._userSer.createUser(ob).subscribe((data) => {

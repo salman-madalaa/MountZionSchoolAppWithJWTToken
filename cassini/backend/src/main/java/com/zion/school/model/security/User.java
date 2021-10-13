@@ -7,6 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -18,6 +19,9 @@ import java.util.Set;
                 @UniqueConstraint(columnNames = "email")
         })
 public class User {
+
+//    private static final long OTP_VALID_DURATION = 5 * 60 * 1000;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -48,6 +52,14 @@ public class User {
     @Size(max = 120)
     private String password;
 
+
+//    @Column(name = "one_time_password")
+//    private String oneTimePassword;
+//
+//    @Column(name = "otp_requested_time")
+//    private Date otpRequestedTime;
+
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -55,5 +67,21 @@ public class User {
     )
     private Set<Role> roles = new HashSet<>();
 
+
+//    public boolean isOTPRequired() {
+//        if (this.getOneTimePassword() == null) {
+//            return false;
+//        }
+//
+//        long currentTimeInMillis = System.currentTimeMillis();
+//        long otpRequestedTimeInMillis = this.otpRequestedTime.getTime();
+//
+//        if (otpRequestedTimeInMillis + OTP_VALID_DURATION < currentTimeInMillis) {
+//            // OTP expires
+//            return false;
+//        }
+//
+//        return true;
+//    }
 
 }

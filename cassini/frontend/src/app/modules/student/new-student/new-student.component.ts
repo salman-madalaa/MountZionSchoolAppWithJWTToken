@@ -180,4 +180,41 @@ export class NewStudentComponent implements OnInit {
     this.imageSrc = 'D:/School App/front end/registrationWithMaterialdesign/src/assets/noImage.jpg';
   }
 
+
+
+  public normalStudentClassNames=[
+    {value: 'nursary', className: 'Nursary Class'},
+    {value: 'kg1', className: 'Kg 1 Class'},
+    {value: 'kg2', className: 'Kg 2 Class'},
+    {value: 'first', className: 'First Class'},
+    {value: 'second', className: 'Second Class'},
+    {value: 'third', className: 'Third Class'},
+    {value: 'fourth', className: 'Fourth Class'},
+    {value: 'fifth', className: 'Fifth Class'},
+    {value: 'sixth', className: 'Sixth Class'},
+    {value: 'seventh', className: 'Seventh Class'},
+    {value: 'eighth', className: 'Eighth Class'},
+    {value: 'ninth', className: 'Ninth Class'},
+    {value: 'tenth', className: 'Tenth Class'},
+  ]
+
+
+
+  public rteStudentClassNames=[
+    {value: 'nursary', className: 'Nursary Class'},
+    {value: 'kg1', className: 'Kg 1 Class'},
+    {value: 'kg2', className: 'Kg 2 Class'},
+    {value: 'first', className: 'First Class'},
+    {value: 'second', className: 'Second Class'},
+    {value: 'third', className: 'Third Class'},
+    {value: 'fourth', className: 'Fourth Class'},
+    {value: 'fifth', className: 'Fifth Class'},
+    {value: 'sixth', className: 'Sixth Class'},
+    {value: 'seventh', className: 'Seventh Class'},
+    {value: 'eighth', className: 'Eighth Class'},
+  ]
+  public filteredList = this.normalStudentClassNames.slice();
+  public filteredList1 = this.rteStudentClassNames.slice();
+
+
 }

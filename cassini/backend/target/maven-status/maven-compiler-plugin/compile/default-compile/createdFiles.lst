@@ -1,8 +1,11 @@
 com\zion\school\controller\StudentImageController.class
 com\zion\school\exceptions\SchoolException.class
 com\zion\school\config\security\jwt\AuthEntryPointJwt.class
+com\zion\school\model\email\EMail.class
 com\zion\school\service\UserService.class
 com\zion\school\config\WebSecurityConfig.class
+com\zion\school\repo\security\UserRolesRepository.class
+com\zion\school\model\security\UserRoles.class
 com\zion\school\helper\ExcelHelper.class
 com\zion\school\service\StudentService.class
 com\zion\school\repo\security\RoleRepository.class
@@ -38,6 +41,7 @@ com\zion\school\helper\ImageHelper.class
 com\zion\school\exceptions\ErrorCodes.class
 com\zion\school\controller\AuthController.class
 com\zion\school\config\security\services\UserDetailsServiceImpl.class
+com\zion\school\helper\EmailHelper.class
 com\zion\school\model\SiblingInformation.class
 com\zion\school\repo\SiblingInformationRepository.class
 com\zion\school\SchoolApplication$1.class

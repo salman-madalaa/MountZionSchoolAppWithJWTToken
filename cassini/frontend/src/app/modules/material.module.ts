@@ -34,6 +34,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { MdePopoverModule } from '@material-extended/mde';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { AdminSidepanelComponent } from './admin/adminSidepanel/admin-sidepanel/admin-sidepanel.component';
+import { MatSelectFilterModule } from 'mat-select-filter';
 
 const MaterialComponents=[
   MatButtonModule,
@@ -65,6 +66,7 @@ const MaterialComponents=[
   MatMenuModule,
   MdePopoverModule,
   MatButtonToggleModule,
+  MatSelectFilterModule,
 
     A11yModule,
     CdkStepperModule,

@@ -4,6 +4,7 @@ D:\cassiniPush\cassini\backend\src\main\java\com\zion\school\controller\StudentC
 D:\cassiniPush\cassini\backend\src\main\java\com\zion\school\repo\StudentImageRepo.java
 D:\cassiniPush\cassini\backend\src\main\java\com\zion\school\config\security\services\UserDetailsImpl.java
 D:\cassiniPush\cassini\backend\src\main\java\com\zion\school\repo\SiblingInformationRepository.java
+D:\cassiniPush\cassini\backend\src\main\java\com\zion\school\repo\security\UserRolesRepository.java
 D:\cassiniPush\cassini\backend\src\main\java\com\zion\school\exceptions\ErrorCodes.java
 D:\cassiniPush\cassini\backend\src\main\java\com\zion\school\message\ResponseMessage.java
 D:\cassiniPush\cassini\backend\src\main\java\com\zion\school\model\SiblingInformation.java
@@ -20,6 +21,7 @@ D:\cassiniPush\cassini\backend\src\main\java\com\zion\school\SchoolApplication.j
 D:\cassiniPush\cassini\backend\src\main\java\com\zion\school\repo\StudentRepository.java
 D:\cassiniPush\cassini\backend\src\main\java\com\zion\school\core\BaseController.java
 D:\cassiniPush\cassini\backend\src\main\java\com\zion\school\service\RoleService.java
+D:\cassiniPush\cassini\backend\src\main\java\com\zion\school\model\security\UserRoles.java
 D:\cassiniPush\cassini\backend\src\main\java\com\zion\school\service\SiblingInformationService.java
 D:\cassiniPush\cassini\backend\src\main\java\com\zion\school\model\security\response\JwtResponse.java
 D:\cassiniPush\cassini\backend\src\main\java\com\zion\school\controller\AuthController.java
@@ -27,10 +29,12 @@ D:\cassiniPush\cassini\backend\src\main\java\com\zion\school\model\security\resp
 D:\cassiniPush\cassini\backend\src\main\java\com\zion\school\model\Student.java
 D:\cassiniPush\cassini\backend\src\main\java\com\zion\school\config\security\jwt\JwtUtils.java
 D:\cassiniPush\cassini\backend\src\main\java\com\zion\school\model\security\request\LoginRequest.java
+D:\cassiniPush\cassini\backend\src\main\java\com\zion\school\helper\EmailHelper.java
 D:\cassiniPush\cassini\backend\src\main\java\com\zion\school\model\security\request\SignupRequest.java
 D:\cassiniPush\cassini\backend\src\main\java\com\zion\school\controller\SiblingInformationController.java
 D:\cassiniPush\cassini\backend\src\main\java\com\zion\school\exceptions\ErrorMessage.java
 D:\cassiniPush\cassini\backend\src\main\java\com\zion\school\service\StudentService.java
+D:\cassiniPush\cassini\backend\src\main\java\com\zion\school\model\email\EMail.java
 D:\cassiniPush\cassini\backend\src\main\java\com\zion\school\config\security\jwt\AuthEntryPointJwt.java
 D:\cassiniPush\cassini\backend\src\main\java\com\zion\school\repo\security\UserRepository.java
 D:\cassiniPush\cassini\backend\src\main\java\com\zion\school\model\security\Role.java

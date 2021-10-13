@@ -139,6 +139,21 @@
               </td>
 
             </tr>
+            <!-- <tr >
+              <mat-form-field class="example-full-width" appearance="fill" [formArray]="roles">
+                <mat-label>Role</mat-label>
+                <mat-select >
+                  <mat-option *ngFor="let role of roles; let i = index"  formControl = "role" [value]="role">
+                    {{role.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+            </tr>
+          {{userForm.value | json}}
+          -->
+
+
 
           </table>
         </form>
@@ -203,7 +218,7 @@
               <td>
                 <mat-form-field class="example-full-width" appearance="fill">
                   <mat-label>Password</mat-label>
-                  <input matInput type="text" formControlName="password" required>
+                  <input matInput type="password" formControlName="password" required>
                 </mat-form-field>
               </td>
             </tr>
@@ -256,7 +271,7 @@
   <mat-drawer-content style="overflow-y: auto !important;">
 
     <div fxLayout="row wrap" fxLayoutGap="0px grid" *ngIf="type == 'user'">
-      <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let user of users | search:'firstName,lastName':searchText; let i = index">
+      <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let user of users | search:'firstName,lastName':searchText | sortBy:'asc':['firstName']; let i = index">
         <mat-card class="example-card">
           <mat-card-header>
             <div mat-card-avatar class="example-header-image">

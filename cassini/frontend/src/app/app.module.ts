@@ -28,6 +28,7 @@ import { AdminSidepanelComponent } from './modules/admin/adminSidepanel/admin-si
 import { ShortNamePipe } from './directives/shortNamePipe';
 import { SearchPipe } from './directives/SearchPipe';
 import { HighLightHtmlPipe } from './directives/HighLightHtmlPipe ';
+import { SortByPipe } from './directives/SortByPipe';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { HighLightHtmlPipe } from './directives/HighLightHtmlPipe ';
     AdminComponent,
     ShortNamePipe,
     SearchPipe,
-    HighLightHtmlPipe
+    HighLightHtmlPipe,
+    SortByPipe
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
