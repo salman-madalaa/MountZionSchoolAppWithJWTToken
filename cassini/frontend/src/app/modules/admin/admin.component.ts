@@ -24,6 +24,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
   editRoleInfo: any;
   imageSrc:any;
   searchText:any;
+  selectedRole:any;
 
   constructor(private _userSer: UserService, private _roleService: RoleService, private _overlaySidePanelService: OverlaySidePanelService,
     private formBuilder: FormBuilder, public loaderSer: LoaderService, private dialogSer: ConfirmationDialogService) { }
@@ -58,7 +59,13 @@ export class AdminComponent implements OnInit, AfterViewInit {
 
   }
 
- 
+
+//----- add the Sibling Information--------------------//
+Roles(): FormArray {
+  return this.userForm.get("roles") as FormArray
+}
+
+
   ngAfterViewInit() {
     this._overlaySidePanelService.setContent(AdminSidepanelComponent);
   }
@@ -110,7 +117,10 @@ export class AdminComponent implements OnInit, AfterViewInit {
   }
 
   createUser(ob) {
+
+    ob.roles = this.selectedRole;
     console.log(ob);
+
      this.loaderSer.showNgxSpinner();
     // ob.append('image', this.userForm.get('image').value);
     console.log(ob.image);
@@ -142,6 +152,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
     });
     this.userForm.setControl('roles', this.setStuentsRoles(user.roles));
     this.imageSrc = user.image;
+    this.selectedRole=user.roles;
   }
 
   setStuentsRoles(roles: any): FormArray {
@@ -154,7 +165,6 @@ export class AdminComponent implements OnInit, AfterViewInit {
     });
     return formArray;
   }
-
 
 
   UpdateUser(ob) {

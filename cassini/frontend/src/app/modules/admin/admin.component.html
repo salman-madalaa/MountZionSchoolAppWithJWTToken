@@ -139,22 +139,15 @@
               </td>
 
             </tr>
-            <!-- <tr >
-              <mat-form-field class="example-full-width" appearance="fill" [formArray]="roles">
-                <mat-label>Role</mat-label>
-                <mat-select >
-                  <mat-option *ngFor="let role of roles; let i = index"  formControl = "role" [value]="role">
-                    {{role.name}}
-                  </mat-option>
+            <tr >
+             <mat-form-field>
+                <mat-select [(value)]="selectedRole" multiple>
+                  <mat-option>none</mat-option>
+                  <mat-option *ngFor="let role of roles; let i = index" [value]="role">{{role.name}}</mat-option>
                 </mat-select>
               </mat-form-field>
 
             </tr>
-          {{userForm.value | json}}
-          -->
-
-
-
           </table>
         </form>
 
@@ -239,6 +232,15 @@
               </td>
 
             </tr>
+            <tr >
+                <!-- <mat-form-field>
+                  <mat-select [(ngModel)]="selectedRole" multiple>
+                    <mat-option>none</mat-option>
+                    <mat-option *ngFor="let role of roles; let i = index;let selectedRol of selectedRole; let j = index" [value]="role == selectedRol">{{role.name}}</mat-option>
+                  </mat-select>
+                </mat-form-field> -->
+
+              </tr>
 
           </table>
         </form>
